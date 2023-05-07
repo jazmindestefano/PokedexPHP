@@ -124,7 +124,7 @@ $conn->close();
             border-radius: 5px;
             margin-bottom: 10px;
             cursor: pointer;
-            background: #eee;
+            background: #a5a5a5;
             padding: 20px;
         }
 

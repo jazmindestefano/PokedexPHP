@@ -3,42 +3,58 @@
 <head>
     <title>búsqueda de pokemones</title>
     <style>
-        /* Estilos del header */
+        body {
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
         header {
-            background-color: #222;
+            background-color: #333;
             color: #fff;
             display: flex;
-            height: 60px;
+            align-items: center;
             justify-content: space-between;
-            padding: 10px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
         }
 
         .logo img {
-            height: 30px;
+            height: 50px;
             margin-right: 10px;
         }
 
-        .menu {
+        .logo h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            padding: 10px 20px;
+        }
+
+        nav ul {
             display: flex;
-            align-items: center;
-            font-size: 16px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .menu a {
+        nav li {
+            margin-left: 10px;
+        }
+
+        nav a {
             color: #fff;
-            margin-right: 10px;
             text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .menu a:hover {
-            opacity: 0.8;
+            font-weight: bold;
         }
 
         /* Estilos del formulario de búsqueda */
@@ -84,11 +100,24 @@
         }
 
         li {
-            background-color: #eee;
-            border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 10px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .pokemon-list {
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background: #eee;
             padding: 20px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         h2 {
@@ -100,24 +129,27 @@
 <header>
     <div class="logo">
         <img src="logo.png" alt="Logo">
-        Mi sitio web
+        <h1>Pokédex</h1>
     </div>
-    <div class="menu">
-        <a href="#">Ver perfil</a>
-        <a href="#">Cerrar sesión</a>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </nav>
 </header>
 <main>
     <form>
-        <input type="text" id="search" name="search" placeholder="Buscar poquemones...">
+        <input type="text" id="search" name="search" placeholder="Buscar pokemones...">
         <input type="submit" value="Buscar">
     </form>
     <h2>Resultados de búsqueda:</h2>
     <ul>
-        <li>Pikachu</li>
-        <li>Charmander</li>
-        <li>Bulbasaur</li>
-        <li>Squirtle</li>
+        <li class="pokemon-list"><a href="pokemon-detalle.php">Pikachu</a></li>
+        <li class="pokemon-list"><a href="pokemon-detalle.php">Charmander</a></li>
+        <li class="pokemon-list"><a href="pokemon-detalle.php">Bulbasaur</a></li>
+        <li class="pokemon-list"><a href="pokemon-detalle.php">Squirtle</a></li>
     </ul>
 </main>
 </body>

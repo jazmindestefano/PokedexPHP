@@ -1,3 +1,17 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = '';
+$database = "pokemon";
+
+$conn = new mysqli($servername, $username, $password, $database) or die();
+
+$sql = "SELECT * FROM pokemones";
+$result = $conn->query($sql);
+$resultado = $result->fetch_all(MYSQLI_ASSOC);
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,10 +160,11 @@
     </form>
     <h2>Resultados de búsqueda:</h2>
     <ul>
-        <li class="pokemon-list"><a href="pokemon-detalle.php">Pikachu</a></li>
-        <li class="pokemon-list"><a href="pokemon-detalle.php">Charmander</a></li>
-        <li class="pokemon-list"><a href="pokemon-detalle.php">Bulbasaur</a></li>
-        <li class="pokemon-list"><a href="pokemon-detalle.php">Squirtle</a></li>
+        <?php
+            foreach ($resultado as $element) {
+                echo "<li><a>" . $element['nombre'] . "</a></li>" . "<br/>";
+            }
+        ?>
     </ul>
 </main>
 </body>

@@ -13,11 +13,19 @@
             padding: 0;
         }
 
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
         form {
             background-color: #333;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            margin: 50px auto;
             max-width: 400px;
             padding: 30px;
             display: flex;
@@ -62,6 +70,17 @@
         div {
             width: 100%;
         }
+
+        .register-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +99,9 @@
             </div>
             <button type="submit" value="Login">Login</button>
         </form>
+        <div class="register-button">
+            <p>No tenes una cuenta? <a href="register.php">Registrate</a></p>
+        </div>
     </main>
 </body>
 </html>

@@ -69,7 +69,7 @@
         <h1>Login Pokedex</h1>
     </header>
     <main>
-        <form action="" method="post">
+        <form action="dashboard.php" method="post">
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

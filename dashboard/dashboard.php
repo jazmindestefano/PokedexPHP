@@ -34,7 +34,7 @@ $conn->close();
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a class="logout-button" href="#">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a> </li>
         </ul>
     </nav>
 </header>

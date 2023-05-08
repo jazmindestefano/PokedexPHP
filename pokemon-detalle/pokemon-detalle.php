@@ -1,3 +1,20 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = '';
+$database = "pokemon";
+
+$conn = new mysqli($servername, $username, $password, $database) or die();
+
+$id = $_GET['id'];
+$sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
+$sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
+$result = $conn->query($sql);
+$resultado = $result->fetch_assoc();
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +43,10 @@
             <img src="charizard.jpg" alt="Charizard">
         </div>
         <div class="pokemon-info">
-            <h1 class="pokemon-name">Charizard</h1>
-            <p class="pokemon-description">Charizard es un Pokémon de tipo Fuego/Volador. Es la evolución final de Charmand</p>
+            <?php
+                echo "<h1 class='pokemon-name'>" . $resultado['nombre'] . "</h1>";
+                echo "<p class='pokemon-description'>". $resultado['descripcion'] . "</p>";
+            ?>
         </div>
     </div>
 </main>

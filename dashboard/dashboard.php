@@ -7,7 +7,7 @@ $database = "pokemon";
 $conn = new mysqli($servername, $username, $password, $database) or die();
 
 if (isset($_GET['search'])) {
-    $search = mysqli_real_escape_string($conn, $_GET['search']); // Escapa caracteres especiales para evitar inyección SQL
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
     $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
 } else {
     $sql = "SELECT * FROM pokemones";

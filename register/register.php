@@ -7,7 +7,7 @@
     <script type="text/javascript" src="../scripts/validacionFormularios.js"></script>
 </head>
 <body>
-<form method="post" action="registerPost.php" onsubmit="return validarFormularioDeRegistro()">
+<form class="form-register" method="post" action="registerPost.php" onsubmit="return validarFormularioDeRegistro()">
     <h2>Registro</h2>
 
     <label for="nombre">Nombre:</label>

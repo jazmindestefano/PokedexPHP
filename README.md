@@ -7,3 +7,13 @@ Pokedex
 - buscador con:
   - busqueda por coincidencia de strings
   - mostrar todos si no se hizo busqueda
+
+
+
+
+
+Jazmin De Stefano
+Gabriel Fiorestino
+Luca Bernacchia
+Nahuel Rolon
+Marcos Sanchez

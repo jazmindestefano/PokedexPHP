@@ -8,7 +8,6 @@ $conn = new mysqli($servername, $username, $password, $database) or die();
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
-$sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
 $result = $conn->query($sql);
 $resultado = $result->fetch_assoc();
 $conn->close();

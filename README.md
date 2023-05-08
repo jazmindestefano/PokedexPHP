@@ -13,7 +13,7 @@ Pokedex
 
 
 Jazmin De Stefano
-Gabriel Fiorestino
+Gabriel Forestiero
 Luca Bernacchia
 Nahuel Rolon
 Marcos Sanchez

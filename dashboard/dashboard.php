@@ -6,7 +6,13 @@ $database = "pokemon";
 
 $conn = new mysqli($servername, $username, $password, $database) or die();
 
-$sql = "SELECT * FROM pokemones";
+if (isset($_GET['search'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['search']); // Escapa caracteres especiales para evitar inyección SQL
+    $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
+} else {
+    $sql = "SELECT * FROM pokemones";
+}
+
 $result = $conn->query($sql);
 $resultado = $result->fetch_all(MYSQLI_ASSOC);
 $conn->close();
@@ -40,8 +46,16 @@ $conn->close();
     <h2>Resultados de búsqueda:</h2>
     <ul>
         <?php
-            foreach ($resultado as $element) {
-                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+        foreach ($resultado as $element) {
+            if (isset($_GET['search']) && !empty($_GET['search'])) {
+                $search = strtolower($_GET['search']);
+                $nombre = strtolower($element['nombre']);
+                if (strpos($nombre, $search) !== false) {
+                    echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+                }
+                } else {
+                    echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+                }
             }
         ?>
     </ul>

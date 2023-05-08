@@ -41,7 +41,8 @@ $conn->close();
     <ul>
         <?php
             foreach ($resultado as $element) {
-                echo "<li class='pokemon-list'><a>" . $element['nombre'] .  "</a></li>" . "<br/>";
+                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+
             }
         ?>
     </ul>

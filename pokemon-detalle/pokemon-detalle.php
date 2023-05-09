@@ -29,7 +29,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="logo.png" alt="Logo">
+        <img src="../images/Pokedex.png" alt="Logo">
         <h1>Pokédex</h1>
     </div>
     <nav>

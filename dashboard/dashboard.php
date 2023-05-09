@@ -86,10 +86,18 @@
             if (!$pokemon_existe) {
                 echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
             }
-
-
             foreach ($resultado as $element) {
-                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>';
+                echo '<li class="pokemon-list">
+                         <div style="display: flex">
+                         <a  href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">
+                         <img class="avatar-card" src="../images/' . $element['nombre'] . '.jpg" alt="' . $element['nombre'] . '">
+                         <div style="display: flex; flex-direction: column">
+                            <a class="pokemon-name" href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>  
+                            <img class="pokemon-type" src="../images/' . $element['tipo'] . '.png" alt="' . $element['tipo'] . '">
+                        </div>
+                        </a>
+                      </div> 
+                      ';
 
                 if ($isAdmin) {
                     echo '<div class="botones-accion">
@@ -97,10 +105,8 @@
                                         <a href="../eliminar-pokemon/eliminar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-eliminar">Eliminar</a>
                             </div>';
                 }
+                echo '</li>';
             }
-
-            
-            session_destroy();
         ?>
 
 

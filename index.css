@@ -29,7 +29,7 @@ main {
     padding: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
+align-items: center;
     flex-direction: column;
     margin-top: 8rem;
 }
@@ -77,10 +77,11 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    color:black;
+    color:white;
+    margin-top: 1rem;
 }
 
 a {
-    color: black;
+    color: white;
     text-decoration: underline;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dark Mode Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="scripts/error.css">
     <script type="text/javascript" src="scripts/validacionFormularios.js"></script>
@@ -32,10 +32,11 @@
 			?>
 
         <button type="submit" value="Login" name="login">Login</button>
+        <div class="register-button">
+            <p>No tenes una cuenta? <a href="register/register.php">Registrate</a></p>
+        </div>
     </form>
-    <div class="register-button">
-        <p>No tenes una cuenta? <a href="register/register.php">Registrate</a></p>
-    </div>
+
 </main>
 </body>
 </html>

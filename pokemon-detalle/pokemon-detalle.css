@@ -22,8 +22,9 @@ header {
 }
 
 .logo img {
-    height: 50px;
-    margin-right: 10px;
+    height: 2em;
+    margin-right: 1em;
+    padding-left: 1em;
 }
 
 .logo h1 {

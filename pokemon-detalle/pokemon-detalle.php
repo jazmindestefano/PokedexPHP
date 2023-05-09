@@ -37,7 +37,7 @@
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a class="logout-button" href="#">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
+            <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
             </li>
 
         </ul>
@@ -47,7 +47,9 @@
     <h2>Detalle de Pokémon</h2>
     <div class="pokemon-detail">
         <div class="pokemon-image">
-            <img src="charizard.jpg" alt="Charizard">
+            <?php
+            echo "<img src='../images/". $resultado['nombre'] . ".jpg' alt='". $resultado['nombre'] ."'>"
+            ?>
         </div>
         <div class="pokemon-info">
 					<?php

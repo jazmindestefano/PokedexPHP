@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 	if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
 		header("Location: ../index.php");
@@ -35,8 +34,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="../dashboard/dashboard.php">Inicio</a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon" src="../images/logout.png" alt=""></a>
             </li>
 

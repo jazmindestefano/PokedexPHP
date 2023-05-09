@@ -56,7 +56,6 @@
                     <source src="../images/Pokemon.mp3" type="audio/mp3">
                 </audio></li>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
             </li>
         </ul>

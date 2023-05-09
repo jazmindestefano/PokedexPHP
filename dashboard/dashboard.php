@@ -47,13 +47,13 @@
 <body>
 <header>
     <div class="logo">
-        <img src="../images/Pokedex.png" alt="Logo">
-        <h1>Pokédex</h1>
+        <a style="color: white" href="../dashboard/dashboard.php"><img src="../images/Pokedex.png" alt="Logo"></a>
+        <h1><a style="color: white" href="../dashboard/dashboard.php">Pokédex</a></h1>
     </div>
     <nav>
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="../formularios/agregarPokemon.php">Agregá un pokemon</a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon"
                                                                           src=".././images/logout.png" alt=""></a>
             </li>
@@ -87,8 +87,6 @@
                 <br/>';
 		    }
 	    ?>
-
-
 
     </ul>
 </main>

@@ -21,8 +21,9 @@ header {
 }
 
 .logo img {
-    height: 50px;
-    margin-right: 10px;
+    height: 2em;
+    margin-right: 1em;
+    padding-left: 1em;
 }
 
 .logo h1 {
@@ -65,6 +66,31 @@ form {
     margin-bottom: 20px;
 }
 
+.avatar-card {
+    object-fit: fill;
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+}
+
+.pokemon-name,
+.pokemon-type{
+    font-size: 18px;
+    margin-left: 25px;
+    font-family: system-ui;
+}
+
+.contenedor-pokemon-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon-type{
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+}
+
 input[type="text"] {
     border: none;
     border-radius: 5px;
@@ -103,11 +129,15 @@ li {
 }
 
 .pokemon-list {
+    display: flex;
+    flex-direction: row;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
-    background: #a5a5a5;
+    background: #dcdcdc;
     padding: 20px;
+    box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 a {
@@ -150,8 +180,3 @@ h2 {
     font-size: 18px;
     margin-bottom: 20px;
 }
-
-.cancion {
-    height: 1.2em;
-}
-

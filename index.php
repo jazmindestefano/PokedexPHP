@@ -36,7 +36,6 @@
     <div class="register-button">
         <p>No tenes una cuenta? <a href="register/register.php">Registrate</a></p>
     </div>
-
 </main>
 </body>
 </html>

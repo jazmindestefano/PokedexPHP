@@ -6,16 +6,11 @@
 
     $conn = new mysqli($servername, $username, $password, $database) or die();
 
-    /*if (isset($_GET['search'])) {
-        $search = mysqli_real_escape_string($conn, $_GET['search']);
-        $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
-    } else {
-        $sql = "SELECT * FROM pokemones";
-    }*/
-
 
     // con esta query si le agregas un nombre que no coincide
     // con ningun pokemon te agregar todos lo pokemones a $resultado
+
+    $pokemon_existe = true;
 
     if (isset($_GET['search'])) {
         $search = mysqli_real_escape_string($conn, $_GET['search']);
@@ -24,6 +19,7 @@
         $resultado = $result->fetch_all(MYSQLI_ASSOC);
         if (count($resultado) == 0) {
             $sql = "SELECT * FROM pokemones";
+            $pokemon_existe = false;
         }
     } else {
         $sql = "SELECT * FROM pokemones";
@@ -63,19 +59,12 @@
     </form>
     <h2>Resultados de búsqueda:</h2>
     <ul>
-        <?php
-            /* foreach ($resultado as $element) {
-                 if (isset($_GET['search']) && !empty($_GET['search'])) {
-                     $search = strtolower($_GET['search']);
-                     $nombre = strtolower($element['nombre']);
-                     if (strpos($nombre, $search) !== false) {
-                         echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
-                     }
-                 } else {
-                     echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
-                 }
-             }*/
 
+        <?php
+
+            if (!$pokemon_existe) {
+                echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO!</li><br>';
+            }
 
             foreach ($resultado as $element) {
                 echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';

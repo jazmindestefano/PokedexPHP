@@ -1,5 +1,9 @@
 body {
-    background-color: #222;
+    background-image: url('images/pokeball.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #fff;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -27,13 +31,16 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 8rem;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 30px;
     text-align: center;
+
 }
+
 
 input[type="text"], input[type="password"] {
     background-color: #444;
@@ -70,9 +77,10 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    color:black;
 }
 
 a {
-    color: white;
+    color: black;
     text-decoration: underline;
 }

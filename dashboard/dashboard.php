@@ -1,5 +1,6 @@
 <?php
 
+
     session_start();
     if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
         header("Location: ../index.php");
@@ -52,16 +53,18 @@
 <body>
 <header>
     <div class="logo">
-        <img src="logo.png" alt="Logo">
+        <img src="../images/Pokedex.png" alt="Logo">
         <h1>Pokédex</h1>
     </div>
     <nav>
         <ul>
+
             <li>
                 <audio class="cancion" controls>
                     <source src="../images/Pokemon.mp3" type="audio/mp3">
                 </audio>
             </li>
+
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon"
@@ -77,6 +80,7 @@
     </form>
     <h2>Resultados de búsqueda:</h2>
     <ul>
+
 
         <?php
             if (!$pokemon_existe) {

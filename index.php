@@ -8,12 +8,12 @@
 </head>
 <body>
 <header>
-    <h1>Login Pokedex</h1>
+    <h1>Pokedex</h1>
 </header>
 <main>
     <form class="form-login" action="dashboard/dashboardPost.php" method="post"
           onsubmit="return validarFormularioDeLogin()">
-
+        <h2>Login</h2>
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
@@ -36,7 +36,6 @@
     <div class="register-button">
         <p>No tenes una cuenta? <a href="register/register.php">Registrate</a></p>
     </div>
-
 </main>
 </body>
 </html>

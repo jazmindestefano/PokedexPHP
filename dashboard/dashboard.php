@@ -76,11 +76,13 @@
 		    foreach ($resultado as $element) {
 
 			    echo '<li class="pokemon-list">
-                         <img class="avatar-card" src="../images/'. $element['nombre'] . '.jpg" alt="' . $element['nombre'] . '">
+                        <a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">
+                         <img class="avatar-card" src="../images/' . $element['nombre'] . '.jpg" alt="' . $element['nombre'] . '">
                          <div class="contenedor-pokemon-data">
                          <a class="pokemon-name" href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>  
-                         <a class="pokemon-type">' . $element['tipo'] . '</a>  
-                         </div>                  
+                         <img class="pokemon-type" src="../images/' . $element['tipo'] . '.png" alt="' . $element['tipo'] . '">
+                         </div>   
+                         </a>               
                       </li>
                 <br/>';
 		    }

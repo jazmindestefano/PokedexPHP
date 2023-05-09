@@ -66,11 +66,6 @@ form {
     margin-bottom: 20px;
 }
 
-.pokemon-list {
-    display: flex;
-    flex-direction: row;
-}
-
 .avatar-card {
     object-fit: fill;
     width: 90px;
@@ -88,7 +83,12 @@ form {
 .contenedor-pokemon-data {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+}
+
+.pokemon-type{
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
 }
 
 input[type="text"] {
@@ -129,11 +129,15 @@ li {
 }
 
 .pokemon-list {
+    display: flex;
+    flex-direction: row;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
-    background: #a5a5a5;
+    background: #dcdcdc;
     padding: 20px;
+    box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 a {

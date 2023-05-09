@@ -99,10 +99,7 @@
                 }
             }
 
-            if ($isAdmin) {
-                echo '<li class="boton-agregar"><a href="../agregar-pokemon/agregar-pokemon.php"> Agregar pokemon </a></li>';
-            }
-
+            
             session_destroy();
         ?>
 

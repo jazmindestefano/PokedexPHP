@@ -74,7 +74,7 @@ form {
 }
 
 .pokemon-name,
-.pokemon-type{
+.pokemon-type {
     font-size: 18px;
     margin-left: 25px;
     font-family: system-ui;
@@ -85,7 +85,7 @@ form {
     flex-direction: column;
 }
 
-.pokemon-type{
+.pokemon-type {
     margin-top: 15px;
     width: 40px;
     height: 40px;
@@ -136,8 +136,13 @@ li {
     cursor: pointer;
     background: #dcdcdc;
     padding: 20px;
-    box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -9px 10px 5px 0px rgba(0,0,0,0.75);
+
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow: -9px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -9px 10px 5px 0px rgba(0, 0, 0, 0.75);
+
 }
 
 a {
@@ -180,3 +185,25 @@ h2 {
     font-size: 18px;
     margin-bottom: 20px;
 }
+
+
+.cancion {
+    height: 1.2em;
+}
+
+
+.boton-agregar {
+    background-color: #777777;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+
+

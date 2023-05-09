@@ -1,41 +1,47 @@
 <?php
 
-	session_start();
-	if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
-		header("Location: ../index.php");
-		exit;
-	}
 
-	$servername = "localhost";
-	$username = "root";
-	$password = '';
-	$database = "pokemon";
-
-	$conn = new mysqli($servername, $username, $password, $database) or die();
+    session_start();
+    if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
+        header("Location: ../index.php");
+        exit;
+    }
+    $isAdmin = false;
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+        $isAdmin = true;
+    }
 
 
-	// con esta query si le agregas un nombre que no coincide
-	// con ningun pokemon te agregar todos lo pokemones a $resultado
+    $servername = "localhost";
+    $username = "root";
+    $password = '';
+    $database = "pokemon";
 
-	$pokemon_existe = true;
-
-	if (isset($_GET['search'])) {
-		$search = mysqli_real_escape_string($conn, $_GET['search']);
-		$sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
-		$result = $conn->query($sql);
-		$resultado = $result->fetch_all(MYSQLI_ASSOC);
-		if (count($resultado) == 0) {
-			$sql = "SELECT * FROM pokemones";
-			$pokemon_existe = false;
-		}
-	} else {
-		$sql = "SELECT * FROM pokemones";
-	}
+    $conn = new mysqli($servername, $username, $password, $database) or die();
 
 
-	$result = $conn->query($sql);
-	$resultado = $result->fetch_all(MYSQLI_ASSOC);
-	$conn->close();
+    // con esta query si le agregas un nombre que no coincide
+    // con ningun pokemon te agregar todos lo pokemones a $resultado
+
+    $pokemon_existe = true;
+
+    if (isset($_GET['search'])) {
+        $search = mysqli_real_escape_string($conn, $_GET['search']);
+        $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
+        $result = $conn->query($sql);
+        $resultado = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($resultado) == 0) {
+            $sql = "SELECT * FROM pokemones";
+            $pokemon_existe = false;
+        }
+    } else {
+        $sql = "SELECT * FROM pokemones";
+    }
+
+
+    $result = $conn->query($sql);
+    $resultado = $result->fetch_all(MYSQLI_ASSOC);
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -68,25 +74,34 @@
     <h2>Resultados de búsqueda:</h2>
     <ul>
 
-	    <?php
-		    if (!$pokemon_existe) {
-			    echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
-		    }
 
-		    foreach ($resultado as $element) {
-
-			    echo '<li class="pokemon-list">
-                        <a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">
+        <?php
+            if (!$pokemon_existe) {
+                echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
+            }
+            foreach ($resultado as $element) {
+                echo '<li class="pokemon-list">
+                         <div style="display: flex">
+                         <a  href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">
                          <img class="avatar-card" src="../images/' . $element['nombre'] . '.jpg" alt="' . $element['nombre'] . '">
-                         <div class="contenedor-pokemon-data">
-                         <a class="pokemon-name" href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>  
-                         <img class="pokemon-type" src="../images/' . $element['tipo'] . '.png" alt="' . $element['tipo'] . '">
-                         </div>   
-                         </a>               
-                      </li>
-                <br/>';
-		    }
-	    ?>
+                         <div style="display: flex; flex-direction: column">
+                            <a class="pokemon-name" href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>  
+                            <img class="pokemon-type" src="../images/' . $element['tipo'] . '.png" alt="' . $element['tipo'] . '">
+                        </div>
+                        </a>
+                      </div> 
+                      ';
+
+                if ($isAdmin) {
+                    echo '<div class="botones-accion">
+                             <a href="../modificar-pokemon/modificar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-modificar">Modificar</a>
+                                        <a href="../eliminar-pokemon/eliminar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-eliminar">Eliminar</a>
+                            </div>';
+                }
+                echo '</li>';
+            }
+        ?>
+
 
     </ul>
 </main>

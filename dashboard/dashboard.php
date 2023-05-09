@@ -6,24 +6,36 @@
 		exit;
 	}
 
+    $servername = "localhost";
+    $username = "root";
+    $password = '';
+    $database = "pokemon";
 
-	$servername = "localhost";
-$username = "root";
-$password = '';
-$database = "pokemon";
+    $conn = new mysqli($servername, $username, $password, $database) or die();
 
-$conn = new mysqli($servername, $username, $password, $database) or die();
 
-if (isset($_GET['search'])) {
-    $search = mysqli_real_escape_string($conn, $_GET['search']);
-    $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
-} else {
-    $sql = "SELECT * FROM pokemones";
-}
+    // con esta query si le agregas un nombre que no coincide
+    // con ningun pokemon te agregar todos lo pokemones a $resultado
 
-$result = $conn->query($sql);
-$resultado = $result->fetch_all(MYSQLI_ASSOC);
-$conn->close();
+    $pokemon_existe = true;
+
+    if (isset($_GET['search'])) {
+        $search = mysqli_real_escape_string($conn, $_GET['search']);
+        $sql = "SELECT * FROM pokemones WHERE nombre LIKE '%$search%'";
+        $result = $conn->query($sql);
+        $resultado = $result->fetch_all(MYSQLI_ASSOC);
+        if (count($resultado) == 0) {
+            $sql = "SELECT * FROM pokemones";
+            $pokemon_existe = false;
+        }
+    } else {
+        $sql = "SELECT * FROM pokemones";
+    }
+
+
+    $result = $conn->query($sql);
+    $resultado = $result->fetch_all(MYSQLI_ASSOC);
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +54,8 @@ $conn->close();
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a class="logout-button" href="#">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -53,19 +66,20 @@ $conn->close();
     </form>
     <h2>Resultados de búsqueda:</h2>
     <ul>
+
         <?php
-        foreach ($resultado as $element) {
-            if (isset($_GET['search']) && !empty($_GET['search'])) {
-                $search = strtolower($_GET['search']);
-                $nombre = strtolower($element['nombre']);
-                if (strpos($nombre, $search) !== false) {
-                    echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
-                }
-                } else {
-                    echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
-                }
+
+            if (!$pokemon_existe) {
+                echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
             }
+
+            foreach ($resultado as $element) {
+                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+            }
+
         ?>
+
+
     </ul>
 </main>
 </body>

@@ -108,6 +108,8 @@ li {
     cursor: pointer;
     background: #a5a5a5;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 a {
@@ -154,4 +156,19 @@ h2 {
 .cancion {
     height: 1.2em;
 }
+
+
+.boton-agregar {
+    background-color: #777777;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
 

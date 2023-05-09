@@ -1,10 +1,15 @@
 <?php
 
-	session_start();
-	if(!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true){
-		header("Location: ../index.php");
-		exit;
-	}
+    session_start();
+    if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
+        header("Location: ../index.php");
+        exit;
+    }
+    $isAdmin = false;
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+        $isAdmin = true;
+    }
+
 
     $servername = "localhost";
     $username = "root";
@@ -52,12 +57,15 @@
     </div>
     <nav>
         <ul>
-            <li ><audio class="cancion" controls>
+            <li>
+                <audio class="cancion" controls>
                     <source src="../images/Pokemon.mp3" type="audio/mp3">
-                </audio></li>
+                </audio>
+            </li>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
+            <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon"
+                                                                          src=".././images/logout.png" alt=""></a>
             </li>
         </ul>
     </nav>
@@ -71,15 +79,27 @@
     <ul>
 
         <?php
-
             if (!$pokemon_existe) {
                 echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
             }
 
+
             foreach ($resultado as $element) {
-                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a></li><br/>';
+                echo '<li class="pokemon-list"><a href="../pokemon-detalle/pokemon-detalle.php?id=' . $element['idPokemon'] . '">' . $element['nombre'] . '</a>';
+
+                if ($isAdmin) {
+                    echo '<div class="botones-accion">
+                             <a href="../modificar-pokemon/modificar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-modificar">Modificar</a>
+                                        <a href="../eliminar-pokemon/eliminar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-eliminar">Eliminar</a>
+                            </div>';
+                }
             }
 
+            if ($isAdmin) {
+                echo '<li class="boton-agregar"><a href="../agregar-pokemon/agregar-pokemon.php"> Agregar pokemon </a></li>';
+            }
+
+            session_destroy();
         ?>
 
 

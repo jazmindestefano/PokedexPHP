@@ -1,11 +1,10 @@
-
 <?php
 
 
 	if (empty($_POST["nombre"]) ||
-			empty($_POST["email"]) ||
-			empty($_POST["password"]) ||
-			empty($_POST["confirm-password"])
+		empty($_POST["email"]) ||
+		empty($_POST["password"]) ||
+		empty($_POST["confirm-password"])
 	) {
 		header('location:register.php');
 		exit();
@@ -22,10 +21,10 @@
 	$email = $_POST["email"];
 	$pass = $_POST["password"];
 
-$sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?,?,?)";
-$statement = $conn->prepare($sql);
-$statement->bind_param("sss", $nombre, $email, $pass);
-$result = $statement->execute();
+	$sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?,?,?)";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("sss", $nombre, $email, $pass);
+	$result = $statement->execute();
 
 	if ($result) {
 		header('Location: ../index.php');

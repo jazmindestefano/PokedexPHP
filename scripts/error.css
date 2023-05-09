@@ -1,4 +1,6 @@
 .error {
+    justify-self: center;
+    font-family: system-ui;
     font-size: 18px;
     font-weight: 600;
     text-align: center;

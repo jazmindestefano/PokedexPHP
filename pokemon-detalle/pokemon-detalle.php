@@ -1,16 +1,23 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = '';
-$database = "pokemon";
 
-$conn = new mysqli($servername, $username, $password, $database) or die();
+	session_start();
+	if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
+		header("Location: ../index.php");
+		exit;
+	}
 
-$id = $_GET['id'];
-$sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
-$result = $conn->query($sql);
-$resultado = $result->fetch_assoc();
-$conn->close();
+	$servername = "localhost";
+	$username = "root";
+	$password = '';
+	$database = "pokemon";
+
+	$conn = new mysqli($servername, $username, $password, $database) or die();
+
+	$id = $_GET['id'];
+	$sql = "SELECT * FROM pokemones WHERE idPokemon = $id";
+	$result = $conn->query($sql);
+	$resultado = $result->fetch_assoc();
+	$conn->close();
 ?>
 
 
@@ -30,7 +37,8 @@ $conn->close();
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a class="logout-button" href="#">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a> </li>
+            <li><a class="logout-button" href="#">Log out <img class="logout-icon" src=".././images/logout.png" alt=""></a>
+            </li>
 
         </ul>
     </nav>
@@ -42,10 +50,10 @@ $conn->close();
             <img src="charizard.jpg" alt="Charizard">
         </div>
         <div class="pokemon-info">
-            <?php
-                echo "<h1 class='pokemon-name'>" . $resultado['nombre'] . "</h1>";
-                echo "<p class='pokemon-description'>". $resultado['descripcion'] . "</p>";
-            ?>
+					<?php
+						echo "<h1 class='pokemon-name'>" . $resultado['nombre'] . "</h1>";
+						echo "<p class='pokemon-description'>" . $resultado['descripcion'] . "</p>";
+					?>
         </div>
     </div>
 </main>

@@ -1,5 +1,13 @@
 <?php
-$servername = "localhost";
+
+	session_start();
+	if(!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true){
+		header("Location: ../index.php");
+		exit;
+	}
+
+
+	$servername = "localhost";
 $username = "root";
 $password = '';
 $database = "pokemon";

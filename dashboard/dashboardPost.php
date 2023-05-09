@@ -6,8 +6,8 @@
 	$database = "pokemon";
 	$conn = new mysqli($servername, $username, $password, $database) or die();
 
-	if (empty($_POST["username"]) ||
-			empty($_POST["password-login"])
+	if (empty($_POST["username"]) || !isset($_POST["username"]) ||
+			empty($_POST["password-login"]) || !isset($_POST["password-login"])
 	) {
 		header('location: ../index.php');
 		exit();
@@ -20,12 +20,12 @@
 			$login = mysqli_query($conn, "SELECT * FROM usuarios WHERE nombre = '$nombre' AND password = '$userPassword'");
 
 			if(mysqli_num_rows($login) > 0) {
-				// si el nombre y la contraseña son correctos, redirigimos al usuario a dashboard/dashboard.php
+				session_start();
+				$_SESSION["autenticado"] = true;
 				header("Location: dashboard.php");
 				exit();
 			} else {
-				// si el nombre y la contraseña son incorrectos, redirigimos al usuario a index.php
-				header("Location: ../index.php");
+				header("Location: ../index.php?error=true");
 				exit();
 			}
 

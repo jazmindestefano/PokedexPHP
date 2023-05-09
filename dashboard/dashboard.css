@@ -131,7 +131,7 @@ a {
     background-color: darkred;
 }
 
-.logout-icon{
+.logout-icon {
     width: 20px;
     filter: invert(100%);
     margin-left: 0.5rem;
@@ -140,4 +140,13 @@ a {
 
 h2 {
     margin-top: 0;
+}
+
+.pokemon-inexistente {
+    color: white;
+    background-color: #f44336;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
 }

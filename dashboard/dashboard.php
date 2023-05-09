@@ -63,7 +63,7 @@
         <?php
 
             if (!$pokemon_existe) {
-                echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO!</li><br>';
+                echo '<li class="pokemon-inexistente">POKEMON NO ENCONTRADO</li><br>';
             }
 
             foreach ($resultado as $element) {

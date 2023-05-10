@@ -25,6 +25,9 @@
             if ($nombre == "admin") {
                 $_SESSION['isAdmin'] = true;
             }
+            if ($nombre !== "admin") {
+                $_SESSION['isAdmin'] = false;
+            }
             header("Location: dashboard.php");
             exit();
         } else {

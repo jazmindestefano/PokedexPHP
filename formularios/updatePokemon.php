@@ -56,9 +56,17 @@ $conn->close();
         </div>
         <div>
             <label for="tipoPokemon">Tipo:</label>
-            <?php
-            echo '<input type="text" id="tipoPokemon" name="tipoPokemon" value=" ' . $resultado['tipo'] . '">';
-            ?>
+            <div>
+                <select style="width: 100%; height: 40px; border: none; border-radius: 6px; padding: 10px; font-size: 16px" id="tipoPokemon" name="tipoPokemon">
+                    <?php
+                    echo '<option id="tipoPokemon" name="tipoPokemon" value=" ' . $resultado['tipo'] . '">' . $resultado['tipo'] . '</option>';
+                    ?>
+                    <option id="tipoPokemon" name="tipoPokemon" value="Electrico">Electrico</option>
+                    <option id="tipoPokemon" name="tipoPokemon" value="Agua">Agua</option>
+                    <option id="tipoPokemon" name="tipoPokemon" value="Fuego">Fuego</option>
+                    <option id="tipoPokemon" name="tipoPokemon" value="Planta">Planta</option>
+                </select>
+            </div>
         </div>
         <div>
             <label for="descripcionPokemon">Descripción:</label>

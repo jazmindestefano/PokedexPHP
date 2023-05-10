@@ -58,7 +58,6 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
             <li><a class="addpoke" href="../formularios/agregarPokemon.php">Agregá un Pokémon <img class="addpoke-icon"
                                                                                                    src=".././images/add2.png" alt=""></a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon"

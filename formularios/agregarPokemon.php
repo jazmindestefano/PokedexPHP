@@ -17,7 +17,6 @@
     </div>
     <nav>
         <ul>
-            <li><a href="../dashboard/dashboard.php">Inicio</a></li>
             <li><a class="logout-button" href="../index.php">Log out <img class="logout-icon"
                                                                           src=".././images/logout.png" alt=""></a>
             </li>

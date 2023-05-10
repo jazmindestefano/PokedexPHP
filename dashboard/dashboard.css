@@ -172,6 +172,26 @@ a {
     margin-left: 0.5rem;
 }
 
+.addpoke {
+    background-color:green;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.addpoke-icon {
+    width: 15px;
+    height: 15px;
+    filter: invert(100%);
+    margin-left: 0.5rem;
+}
+
 
 h2 {
     margin-top: 0;

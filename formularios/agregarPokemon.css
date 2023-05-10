@@ -46,5 +46,10 @@
     }
 
     .input-add {
-        width: 815px;
+        width: 515px;
+    }
+
+    .select-type{
+        width: 520px;
+        height: 35px;
     }

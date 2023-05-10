@@ -94,7 +94,7 @@
 
                 if ($isAdmin) {
                     echo '<div class="botones-accion">
-                             <a href="../modificar-pokemon/modificar-pokemon.php?id=' . $element['idPokemon'] . '" class="boton-modificar">Modificar</a>
+                             <a href="../formularios/updatePokemon.php?id=' . $element['idPokemon'] . '" class="boton-modificar">Modificar</a>
                                         <a href="../formularios/eliminarPokemon.php?id=' . $element['idPokemon'] . '" class="boton-eliminar">Eliminar</a>
                             </div>';
                 }

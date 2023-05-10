@@ -24,15 +24,25 @@
         </ul>
     </nav>
 </header>
-<main>
+<main style="width: 100%; display: flex; justify-content: center">
     <form class="form-add-pokemon" action="agregarPokemonPost.php" method="post" onsubmit="return validarFormularioDeAddPokemon()">
         <div>
             <label for="nombrePokemon">Nombre:</label>
-            <input type="text" id="nombrePokemon" name="nombrePokemon">
+            <div>
+            <input style="width: 500px" type="text" id="nombrePokemon" name="nombrePokemon">
+        </div>
         </div>
         <div>
             <label for="tipoPokemon">Tipo:</label>
-            <input type="text" id="tipoPokemon" name="tipoPokemon">
+            <div>
+            <select class="select-type" id="tipoPokemon" name="tipoPokemon">
+                <option id="tipoPokemon" name="tipoPokemon" value="0" disabled>Seleccioná el tipo:</option>
+                <option id="tipoPokemon" name="tipoPokemon" value="Electrico">Electrico</option>
+                <option id="tipoPokemon" name="tipoPokemon" value="Agua">Agua</option>
+                <option id="tipoPokemon" name="tipoPokemon" value="Fuego">Fuego</option>
+                <option id="tipoPokemon" name="tipoPokemon" value="Planta">Planta</option>
+            </select>
+            </div>
         </div>
         <div>
             <label for="descripcionPokemon">Descripción:</label>

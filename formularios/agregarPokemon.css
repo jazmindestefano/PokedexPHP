@@ -11,6 +11,19 @@
         margin-bottom: 20px;
     }
 
+    .pokemon-no-agregado {
+        color: red;
+        font-weight: bold;
+        font-family: system-ui;
+        background-color: #ffc2c2;
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 6px;
+        width: 500px;
+        margin-bottom: 20px;
+    }
+
     .form-add-pokemon {
         display: flex;
         flex-direction: column;

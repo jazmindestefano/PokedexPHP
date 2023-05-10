@@ -5,6 +5,15 @@
 		exit;
 	}
 
+	if (empty($_POST["nombrePokemon"]) ||
+		empty($_POST["tipoPokemon"]) ||
+		empty($_POST["descripcionPokemon"])
+	) {
+		header('location:agregarPokemon.php?add=false');
+		exit();
+	}
+
+
 	$servername = "localhost";
 	$username = "root";
 	$password = '';
@@ -16,13 +25,6 @@
 	$tipo = $_POST["tipoPokemon"];
 	$desc = $_POST["descripcionPokemon"];
 
-	if (empty($_POST["nombrePokemon"]) || !isset($_POST["nombrePokemon"]) ||
-		empty($_POST["tipoPokemon"]) || !isset($_POST["tipoPokemon"]) ||
-		empty($_POST["descripcionPokemon"]) || !isset($_POST["descripcionPokemon"])
-	) {
-		header('location: agregarPokemon.php');
-		exit();
-	}
 
 	$sql = "INSERT INTO pokemones (nombre, tipo , descripcion) VALUES (?,?,?)";
 	$statement = $conn->prepare($sql);

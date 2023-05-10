@@ -41,13 +41,19 @@
             </div>
         </div>
         </div>
-        <button class="button-add-pokemon" type="submit">Agregar Pokemon</button>
+        <button class="button-add-pokemon" name="addButton" type="submit">Agregar Pokemon</button>
     <div style="width: 100%; display: flex; justify-content: center">
-			<?php if (isset($_GET["add"]) && $_GET["add"]) {
+			<?php if (isset($_GET["add"]) && $_GET["add"] == "true") {
 
 				echo "<p class='pokemon-agregado'>El pokemon fue agregado correctamente</p>";
 			}
-			?>
+
+            if (isset($_GET["add"]) && $_GET["add"] == "false") {
+
+                echo "<p class='pokemon-no-agregado'>Completá los campos</p>";
+            }
+
+            ?>
     </div>
     </form>
 </main>

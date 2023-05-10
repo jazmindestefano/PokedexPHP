@@ -26,7 +26,6 @@
 
     <input type="submit" value="Registrarse">
 </form>
-<c
 </body>
 </html>
 

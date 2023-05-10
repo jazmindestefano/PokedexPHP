@@ -1,5 +1,5 @@
 <?php
-/*
+
 
     session_start();
     if (!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
@@ -41,7 +41,7 @@
 
     $result = $conn->query($sql);
     $resultado = $result->fetch_all(MYSQLI_ASSOC);
-    $conn->close(); */
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
